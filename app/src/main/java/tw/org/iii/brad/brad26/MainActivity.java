@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder iBinder) {
-            MyService.LocalBinder binder = (MyService.LocalBinder)iBinder; //是MyService裡的內部類別的方法return回來的
-            myService = binder.getService();
+            MyService.LocalBinder binder = (MyService.LocalBinder)iBinder; //此處iBinder就是onBind的mBinder物件實體
+            myService = binder.getService();//是MyService裡的內部類別的方法return回來的
             Log.v("brad","onServiceConnected");
             isBind = true;
         }
